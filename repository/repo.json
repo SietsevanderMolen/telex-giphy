@@ -1,0 +1,9 @@
+{
+    "name": "Giphy",
+    "description": "Get gifs from giphy.com",
+    "version": "1.0",
+    "default_enable": ["Giphy"],
+    "homepage": "https://github.com/sietsevandermolen/telex-giphy",
+    "repo": "https://github.com/sietsevandermolen/telex-giphy.git",
+    "branch": "master"
+}
