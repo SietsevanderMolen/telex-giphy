@@ -35,4 +35,12 @@ class GiphyPlugin(plugin.TelexPlugin):
     def send_gif(self, msg, gif):
         filename = self.bot.download_to_file(gif.media_url, "gif")
         peer = self.bot.get_peer_to_send(msg)
-        tgl.send_document(peer, filename)
+
+        def cleanup_cb(success, msg):
+            if success:
+                os.remove(filename)
+            else:
+                peer.send_msg("Giphy: something went wrong")
+            
+        tgl.send_document(peer, filename, cleanup_cb)
+
